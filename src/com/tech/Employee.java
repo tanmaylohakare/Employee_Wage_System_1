@@ -12,49 +12,62 @@ public class Employee {
 		
 		
 		int totalWagesForHrs =0;
-		int totalWagesForDays =0;
+		int day =0;
 		int totalWagesForMonth =0;
 		
 		
 //		int workingHrs=0;
-		
-		for(int day=1; day<=working_days_per_mounth;day++) {
-			
+		while (day < working_days_per_mounth && totalWagesForHrs < max_working_Hrs) {
+            day++;
 		int workingHrs=0;
         int empType=(int) (Math.random()*100)%3;
 
 		
-		 int IS_PRESENT=1;
 		 
 		switch (empType)
 		{
 		
 		case Full_Time : 
-	           System.out.println("Employee is Present ");
+            System.out.println("Day " + day + ": Employee is Present (Full-Time)");
 	           workingHrs=8;
 	           break;
 	            
 	        
 		case Part_Time :
-			 System.out.println("Employee is Part Time");
+            System.out.println("Day " + day + ": Employee is Part-Time");
 			 workingHrs=4;
 			 break;
 			 
 		default:
 	        
-	            System.out.println("Employee is Absent");
+            System.out.println("Day " + day + ": Employee is Absent");
 	            workingHrs =0;
 	            break;
 	            
 		}
+		
+		 if (totalWagesForHrs + workingHrs > max_working_Hrs) {
+             workingHrs = max_working_Hrs - totalWagesForHrs; // Adjust hours to cap at the max
+         }
 	            
 		 int wage=workingHrs *Wage_Per_Hr;
 		 
 		 totalWagesForMonth +=wage;
+		 totalWagesForHrs += workingHrs;
+
+         System.out.println("Daily Wage: " + wage + " | Total Working Hours: " + totalWagesForHrs);
+
+         if (totalWagesForHrs >= max_working_Hrs) {
+             break;
+         }
 		 
 		 System.out.println("Day " +day +": Employee Type =" +empType + ", Daily Wage ="+ wage);
 		}
 		System.out.println("Total Wage For the Month "+ totalWagesForMonth);
+        System.out.println("Total Working Hours: " + totalWagesForHrs + " out of " + max_working_Hrs);
+        System.out.println("Total Working Days: " + day + " out of " + working_days_per_mounth);
+
+        
 	}
 
 }
