@@ -61,11 +61,11 @@ public class Employee {
              break;
          }
 		 
-		 System.out.println("Day " +day +": Employee Type =" +empType + ", Daily Wage ="+ wage);
+		 System.out.println("Day " +day +": Employee Type =" +empType + ", Daily Wage = "+ wage);
 		}
-		System.out.println("Total Wage For the Month "+ totalWagesForMonth);
-        System.out.println("Total Working Hours: " + totalWagesForHrs + " out of " + max_working_Hrs);
-        System.out.println("Total Working Days: " + day + " out of " + working_days_per_mounth);
+		System.out.println("Total Wage For the Month  "+ totalWagesForMonth);
+        System.out.println("Total Working Hours:  " + totalWagesForHrs + " out of " + max_working_Hrs);
+        System.out.println("Total Working Days:  " + day + " out of " + working_days_per_mounth);
 
         
 	}
